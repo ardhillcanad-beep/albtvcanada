@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ALB TV Canada</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --red: #c8102e;
+      --dark-red: #8f001a;
+      --black: #111111;
+      --dark: #1c1c1c;
+      --white: #ffffff;
+      --light: #f4f4f4;
+      --gray: #696969;
+      --blue: #0057b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .section-title span {
+      color: var(--red);
+    }
+
+    .section-description {
+      max-width: 760px;
+      font-size: 18px;
+      color: var(--gray);
+      margin-bottom: 45px;
+    }
+
+    /* NAVIGATION */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(17, 17, 17, 0.96);
+      border-bottom: 3px solid var(--red);
+    }
+
+    .nav-content {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo-box {
+      background: var(--red);
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: #cccccc;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    .nav-button {
+      padding: 11px 20px;
+      background: var(--red);
+      border-radius: 4px;
+    }
+
+    .nav-button:hover {
+      color: var(--white) !important;
+      background: var(--dark-red);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      color: var(--white);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.92) 0%,
+          rgba(0, 0, 0, 0.76) 55%,
+          rgba(0, 0, 0, 0.35) 100%
+        ),
+        url("toronto-background.jpg") center/cover no-repeat;
+      padding-top: 90px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--red);
+      padding: 8px 15px;
+      margin-bottom: 25px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(54px, 9vw, 105px);
+      font-weight: 900;
+      letter-spacing: -5px;
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: clamp(18px, 2.5vw, 25px);
+      color: #eeeeee;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 28px;
+      border-radius: 4px;
+      font-weight: 800;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+    }
+
+    .button-red {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .button-red:hover {
+      background: var(--dark-red);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .hero-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 4px solid rgba(255,255,255,0.92);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.48);
+    }
+
+    .hero-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 520px;
+      background:
+        linear-gradient(
+          rgba(200, 16, 46, 0.18),
+          rgba(0, 0, 0, 0.3)
+        ),
+        url("albtv-studio.jpg") center/cover no-repeat;
+      border-left: 12px solid var(--red);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+      font-size: 17px;
+      color: var(--gray);
+    }
+
+    .mission-box {
+      margin-top: 30px;
+      padding: 28px;
+      color: var(--white);
+      background: var(--black);
+      border-bottom: 5px solid var(--red);
+    }
+
+    .mission-box h3 {
+      color: var(--red);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: var(--light);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      min-height: 260px;
+      background: var(--white);
+      padding: 35px;
+      border-top: 6px solid var(--red);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+    }
+
+    .card-number {
+      color: var(--red);
+      font-size: 44px;
+      font-weight: 900;
+      opacity: 0.25;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      text-transform: uppercase;
+      margin: 12px 0;
+    }
+
+    .card p {
+      color: var(--gray);
+    }
+
+    /* PROGRAMS */
+
+    .programs {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .programs .section-description {
+      color: #bdbdbd;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .program-item {
+      position: relative;
+      min-height: 210px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding: 28px;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.95),
+          rgba(0, 0, 0, 0.15)
+        ),
+        url("program-cover.jpg") center/cover no-repeat;
+    }
+
+    .program-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 8px;
+      height: 100%;
+      background: var(--red);
+    }
+
+    .program-item h3 {
+      position: relative;
+      font-size: 25px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    /* AUDIENCE */
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .audience-item {
+      text-align: center;
+      padding: 32px 15px;
+      background: var(--light);
+      border-bottom: 4px solid var(--red);
+      font-weight: 800;
+    }
+
+    /* PACKAGES */
+
+    .packages {
+      background: var(--light);
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .package {
+      position: relative;
+      background: var(--white);
+      padding: 38px 25px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .package.featured {
+      background: var(--black);
+      color: var(--white);
+      transform: scale(1.04);
+      border: 3px solid var(--red);
+    }
+
+    .package-label {
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .package h3 {
+      margin: 10px 0 22px;
+      font-size: 30px;
+      text-transform: uppercase;
+    }
+
+    .package ul {
+      list-style: none;
+    }
+
+    .package li {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #dddddd;
+      font-size: 14px;
+    }
+
+    .package.featured li {
+      border-color: #444444;
+    }
+
+    /* CALL TO ACTION */
+
+    .cta {
+      text-align: center;
+      color: var(--white);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(143, 0, 26, 0.95),
+          rgba(200, 16, 46, 0.88)
+        ),
+        url("toronto-background.jpg") center/cover no-repeat;
+    }
+
+    .cta h2 {
+      font-size: clamp(36px, 6vw, 65px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .cta p {
+      max-width: 750px;
+      margin: 0 auto 35px;
+      font-size: 19px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #090909;
+      color: var(--white);
+      padding: 55px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+
+    footer h3 {
+      color: var(--red);
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    footer p,
+    footer li {
+      color: #bcbcbc;
+      margin-bottom: 8px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    .footer-email {
+      transition: 0.25s ease;
+    }
+
+    .footer-email:hover {
+      color: var(--red);
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #292929;
+      padding-top: 25px;
+      color: #888888;
+      font-size: 13px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 125px;
+        padding-bottom: 70px;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .package-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .section {
+        padding: 65px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .cards-grid,
+      .program-grid,
+      .package-grid,
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .package.featured {
+        transform: none;
+      }
+
+      .about-image {
+        min-height: 350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-content">
+
+      <a href="#home" class="logo">
+        <span class="logo-box">ALB TV</span>
+
+        <span>
+          CANADA
+          <small>ZËRI I SHQIPTARËVE NË KANADA</small>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#rreth-nesh">Rreth nesh</a></li>
+        <li><a href="#sherbimet">Shërbimet</a></li>
+        <li><a href="#programet">Programet</a></li>
+        <li><a href="#paketat">Paketat</a></li>
+        <li><a href="#kontakt" class="nav-button">Kontakt</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+
+      <div class="hero-content">
+
+        <span class="hero-label">
+          Shtëpia mediatike shqiptare në Kanada
+        </span>
+
+        <h1>
+          ALB TV<br>
+          <span>Canada</span>
+        </h1>
+
+        <p>
+          Lajme, intervista, reportazhe, kulturë, biznes dhe histori
+          suksesi nga komuniteti shqiptar në Kanada.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="https://www.youtube.com/@ALB_Tv_Canada_Official" class="button button-red" target="_blank" rel="noopener noreferrer">
+            YouTube
+          </a>
+
+          <a href="https://www.facebook.com/albtvcanada.official/" class="button button-outline" target="_blank" rel="noopener noreferrer">
+            Facebook
+          </a>
+
+          <a href="#programet" class="button button-outline">
+            Shiko programet
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-video" aria-label="Video kryesore e ALB TV Canada">
+        <iframe
+          src="https://www.youtube.com/embed/UshqHayn4M0?rel=0&modestbranding=1"
+          title="ALB TV Canada - Video kryesore"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
+  </header>
+
+  <section class="section" id="rreth-nesh">
+    <div class="container about-grid">
+
+      <div class="about-image"></div>
+
+      <div class="about-text">
+
+        <h2 class="section-title">
+          Kush <span>jemi</span>
+        </h2>
+
+        <p>
+          ALB TV Canada është një platformë mediatike shqiptare me qendër
+          në Toronto, e krijuar për të informuar, promovuar dhe bashkuar
+          komunitetin shqiptar në Kanada.
+        </p>
+
+        <p>
+          Përmes lajmeve, intervistave, podcasteve, reportazheve dhe
+          transmetimeve live, ne sjellim historitë, sukseset dhe zërin
+          e shqiptarëve më pranë publikut.
+        </p>
+
+        <div class="mission-box">
+          <h3>Misioni ynë</h3>
+
+          <p>
+            Të bëhemi media kryesore e shqiptarëve në Kanada dhe ura
+            mediatike që lidh komunitetin, bizneset, kulturën dhe brezat.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section services" id="sherbimet">
+    <div class="container">
+
+      <h2 class="section-title">
+        Çfarë <span>ofrojmë</span>
+      </h2>
+
+      <p class="section-description">
+        Përmbajtje mediatike profesionale dhe zgjidhje promocionale
+        të krijuara posaçërisht për komunitetin dhe bizneset shqiptare.
+      </p>
+
+      <div class="cards-grid">
+
+        <article class="card">
+          <div class="card-number">01</div>
+          <h3>Lajme</h3>
+          <p>
+            Lajme nga Kanadaja, Shqipëria, Kosova dhe diaspora shqiptare.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">02</div>
+          <h3>Intervista</h3>
+          <p>
+            Intervista me biznesmenë, artistë, profesionistë dhe figura
+            të komunitetit.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">03</div>
+          <h3>Podcast</h3>
+          <p>
+            Biseda të thelluara, histori jete dhe eksperienca të shqiptarëve.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">04</div>
+          <h3>Reportazhe</h3>
+          <p>
+            Reportazhe nga eventet, bizneset, aktivitetet dhe jeta komunitare.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">05</div>
+          <h3>Marketing</h3>
+          <p>
+            Video promocionale, reklama televizive dhe promovim në rrjete sociale.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">06</div>
+          <h3>Transmetime Live</h3>
+          <p>
+            Transmetime profesionale të eventeve, intervistave dhe programeve.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section programs" id="programet">
+    <div class="container">
+
+      <h2 class="section-title">
+        Programet <span>tona</span>
+      </h2>
+
+      <p class="section-description">
+        Programe që pasqyrojnë jetën, identitetin dhe sukseset e
+        shqiptarëve në Kanada.
+      </p>
+
+      <div class="program-grid">
+
+        <article class="program-item">
+          <h3>Shqip Story Canada</h3>
+        </article>
+
+        <article class="program-item">
+          <h3>Mirëmëngjes Canada</h3>
+        </article>
+
+        <article class="program-item">
+          <h3>Qeshu Rini</h3>
+        </article>
+
+        <article class="program-item">
+          <h3>Gjuha e Nënës</h3>
+        </article>
+
+        <article class="program-item">
+          <h3>Rrugëtim me Bizneset Shqiptare</h3>
+        </article>
+
+        <article class="program-item">
+          <h3>Lajmet ALB TV Canada</h3>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <h2 class="section-title">
+        Audienca <span>jonë</span>
+      </h2>
+
+      <p class="section-description">
+        Një publik shqiptar i shpërndarë në Kanada, Amerikë, Shqipëri,
+        Kosovë dhe Evropë.
+      </p>
+
+      <div class="audience-grid">
+        <div class="audience-item">Kanada</div>
+        <div class="audience-item">SHBA</div>
+        <div class="audience-item">Shqipëri</div>
+        <div class="audience-item">Kosovë</div>
+        <div class="audience-item">Evropë</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section packages" id="paketat">
+    <div class="container">
+
+      <h2 class="section-title">
+        Paketat e <span>promovimit</span>
+      </h2>
+
+      <p class="section-description">
+        Paketa të përshtatura për bizneset që kërkojnë ekspozim,
+        besueshmëri dhe lidhje direkte me komunitetin shqiptar.
+      </p>
+
+      <div class="package-grid">
+
+        <article class="package">
+          <span class="package-label">Paketa</span>
+          <h3>Basic</h3>
+
+          <ul>
+            <li>Postim në rrjetet sociale</li>
+            <li>Logo në material promocional</li>
+            <li>Përmendje e biznesit</li>
+            <li>Promovim bazë</li>
+          </ul>
+        </article>
+
+        <article class="package">
+          <span class="package-label">Paketa</span>
+          <h3>Gold</h3>
+
+          <ul>
+            <li>Video promocionale</li>
+            <li>Postime në Facebook dhe Instagram</li>
+            <li>Logo gjatë programit</li>
+            <li>Reklamë periodike</li>
+          </ul>
+        </article>
+
+        <article class="package featured">
+          <span class="package-label">Më e kërkuara</span>
+          <h3>Premium</h3>
+
+          <ul>
+            <li>Intervistë profesionale</li>
+            <li>Reportazh nga biznesi</li>
+            <li>Video reklamë televizive</li>
+            <li>Promovim në të gjitha platformat</li>
+          </ul>
+        </article>
+
+        <article class="package">
+          <span class="package-label">Paketa</span>
+          <h3>VIP</h3>
+
+          <ul>
+            <li>Sponsor kryesor i emisionit</li>
+            <li>Logo permanente</li>
+            <li>Intervista dhe reportazhe mujore</li>
+            <li>Fushatë e plotë marketingu</li>
+          </ul>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section cta" id="kontakt">
+    <div class="container">
+
+      <h2>
+        Promovoni biznesin tuaj me ALB TV Canada
+      </h2>
+
+      <p>
+        Lidheni markën tuaj me komunitetin shqiptar përmes televizionit,
+        videove profesionale, intervistave dhe rrjeteve sociale.
+      </p>
+
+      <a
+        href="mailto:albtvcanada@gmail.com"
+        class="button button-outline"
+      >
+        Na kontaktoni
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <div class="logo">
+            <span class="logo-box">ALB TV</span>
+            <span>CANADA</span>
+          </div>
+
+          <p style="margin-top: 20px;">
+            Zëri i shqiptarëve në Kanada.
+          </p>
+        </div>
+
+        <div>
+          <h3>Platformat</h3>
+
+          <ul>
+            <li><a href="https://www.youtube.com/@ALB_Tv_Canada_Official" target="_blank" rel="noopener noreferrer" class="footer-email">YouTube</a></li>
+            <li><a href="https://www.facebook.com/albtvcanada.official/" target="_blank" rel="noopener noreferrer" class="footer-email">Facebook</a></li>
+            <li>Instagram</li>
+            <li>TikTok</li>
+            <li>TV ALB – Channel 36</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Kontakt</h3>
+
+          <ul>
+            <li>Toronto, Ontario, Canada</li>
+
+            <li>
+              <a
+                href="mailto:albtvcanada@gmail.com"
+                class="footer-email"
+              >
+                albtvcanada@gmail.com
+              </a>
+            </li>
+
+            <li>@albtv_canada</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © 2026 ALB TV Canada. Të gjitha të drejtat e rezervuara.
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
