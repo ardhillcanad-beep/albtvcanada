@@ -1,124 +1,229 @@
 <!doctype html>
 <html lang="sq">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ALB TV Canada | Zëri i Shqiptarëve në Kanada</title>
-<meta name="description" content="ALB TV Canada — lajme, programe, intervista, kulturë dhe komuniteti shqiptar në Kanada.">
+<meta name="description" content="ALB TV Canada - lajme, programe, intervista, kulturë dhe komuniteti shqiptar në Kanada.">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600&display=swap');
-:root{--bg:#050505;--panel:#0b0b0b;--line:#262626;--red:#e30613;--white:#f7f7f7;--gray:#a7a7a7}
-*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,Arial,sans-serif}
-a{color:inherit;text-decoration:none} .wrap{width:min(1440px,94%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.94);backdrop-filter:blur(12px);border-bottom:1px solid #161616}
-.nav{height:86px;display:flex;align-items:center;gap:36px} .brand img{width:122px;height:70px;object-fit:contain}
-nav{display:flex;gap:30px;margin-left:auto;align-items:center} nav a{font-size:13px;font-weight:700;letter-spacing:.04em} nav a:hover{color:var(--red)}
-.live{background:var(--red);padding:12px 18px;border-radius:8px}
-.hero{min-height:690px;display:grid;grid-template-columns:1fr .9fr;align-items:center;gap:50px;padding:70px 0}
-.eyebrow{color:var(--red);font-weight:800;letter-spacing:.28em;font-size:14px}
-h1{font-size:clamp(52px,7vw,98px);line-height:.94;margin:20px 0 24px;letter-spacing:-.055em} h1 b{color:var(--red)} .script{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(34px,4vw,56px);font-weight:600}
-.hero p{color:#d1d1d1;max-width:650px;font-size:18px;line-height:1.7}
-.actions{display:flex;gap:14px;margin-top:30px} .btn{padding:15px 22px;border:1px solid #777;border-radius:6px;font-weight:800} .btn.primary{background:var(--red);border-color:var(--red)}
-.hero-art{min-height:500px;border-radius:18px;position:relative;overflow:hidden;background:radial-gradient(circle at 70% 35%,#4b0005 0,#170003 24%,#050505 62%);border:1px solid #202020;display:grid;place-items:center}
-.hero-art:after{content:"ON AIR";position:absolute;right:7%;top:8%;border:3px solid var(--red);color:#ff2632;padding:10px 16px;border-radius:8px;font-weight:900;box-shadow:0 0 24px #e3061366}
-.hero-art img{width:78%;filter:drop-shadow(0 20px 30px #000)}
-.features{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:12px;background:#080808;margin-bottom:75px}
-.feature{padding:28px;border-right:1px solid var(--line)} .feature:last-child{border-right:0} .feature b{display:block;margin-bottom:9px} .feature p{color:var(--gray);font-size:14px;line-height:1.55;margin:0}
-section{padding:20px 0 72px} .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px;border-left:5px solid var(--red);padding-left:14px}
-.section-head h2{margin:0;font-size:28px} .section-head a{color:var(--red);font-weight:800;font-size:13px}
-.program-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px} .program-card{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden;transition:.2s}
-.program-card:hover{transform:translateY(-5px);border-color:#555} .program-cover{aspect-ratio:16/10;padding:24px;background:linear-gradient(145deg,#190003,#050505 60%);display:flex;flex-direction:column;justify-content:flex-end}
-.program-cover strong{font-size:clamp(24px,2.2vw,38px);line-height:1} .program-kicker{color:var(--red);font-size:11px;font-weight:900;letter-spacing:.16em;margin-bottom:12px}
-.program-meta{padding:18px} .program-meta h3{margin:0 0 7px;font-size:16px} .program-meta p{margin:0 0 15px;color:var(--gray);font-size:13px} .program-meta span{color:var(--red);font-size:12px;font-weight:800}
-.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px} .news{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#090909} .news-image{height:210px;background:linear-gradient(135deg,#171717,#360006);display:grid;place-items:center;font-size:46px;font-weight:900;color:#333}
-.news-body{padding:20px} .tag{display:inline-block;background:var(--red);font-size:11px;font-weight:800;padding:5px 8px;border-radius:3px} .news h3{font-size:18px;line-height:1.4}
-.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px} .gallery-item{min-height:240px;background:linear-gradient(145deg,#151515,#060606);border:1px solid var(--line);display:grid;place-items:center;color:#555;font-weight:800;border-radius:8px}
-.cta{border-top:1px solid #421014;border-bottom:1px solid #421014;padding:34px 0;background:linear-gradient(90deg,#100000,#050505)} .cta-row{display:flex;align-items:center;justify-content:space-between;gap:20px} .cta .script{color:white} .contact{display:flex;gap:25px;flex-wrap:wrap;color:#ddd}
-footer{padding:50px 0 28px} .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px} footer img{width:145px} footer h4{color:var(--red);margin:0 0 15px} footer p,footer li{color:var(--gray);font-size:14px;line-height:1.7} footer ul{list-style:none;padding:0} .copyright{border-top:1px solid var(--line);margin-top:35px;padding-top:22px;color:#777;font-size:12px}
-@media(max-width:900px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:45px}.features,.program-grid{grid-template-columns:repeat(2,1fr)}.news-grid,.gallery-grid,.footer-grid{grid-template-columns:1fr}}
-@media(max-width:560px){.features,.program-grid{grid-template-columns:1fr}.hero{min-height:auto}.hero-art{min-height:350px}h1{font-size:52px}.cta-row{align-items:flex-start;flex-direction:column}}
+:root{
+  --bg:#050505; --panel:#0b0b0b; --soft:#111; --line:#252525;
+  --red:#e30613; --red2:#b0000a; --white:#f7f7f7; --gray:#a7a7a7;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1440px,94%);margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(5,5,5,.95);backdrop-filter:blur(12px);border-bottom:1px solid #181818}
+.nav{height:84px;display:flex;align-items:center;gap:30px}
+.brand img{width:116px;height:66px;object-fit:contain}
+nav{margin-left:auto;display:flex;gap:25px;align-items:center}
+nav a{font-size:13px;font-weight:800;letter-spacing:.04em;color:#ddd}
+nav a:hover{color:var(--red)}
+.live{background:var(--red);padding:11px 16px;border-radius:6px;color:white!important}
+.hero{padding:52px 0 60px;text-align:center}
+.kicker{color:var(--red);font-size:12px;font-weight:900;letter-spacing:.26em}
+.hero h1{font-size:clamp(48px,7vw,96px);line-height:.92;letter-spacing:-.055em;margin:18px auto 18px;max-width:1000px}
+.hero h1 span{color:var(--red)}
+.hero p{max-width:760px;margin:0 auto;color:#c9c9c9;font-size:18px;line-height:1.7}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:26px 0 34px}
+.btn{padding:14px 20px;border:1px solid #666;border-radius:6px;font-size:13px;font-weight:900}
+.btn.primary{background:var(--red);border-color:var(--red)}
+.spot{width:min(1180px,100%);margin:auto;border:1px solid #2b2b2b;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 28px 90px rgba(0,0,0,.65)}
+.spot video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
+.section{padding:62px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}
+.section-title{font-size:clamp(28px,4vw,46px);margin:0;letter-spacing:-.035em}
+.section-title span{color:var(--red)}
+.more{color:var(--red);font-size:12px;font-weight:900;letter-spacing:.04em}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#080808}
+.feature{padding:28px;border-right:1px solid var(--line)}
+.feature:last-child{border-right:0}
+.feature b{font-size:15px}
+.feature p{color:var(--gray);font-size:13px;line-height:1.6;margin:8px 0 0}
+.program-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.program-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.program-video{aspect-ratio:16/9;position:relative;background:#000;overflow:hidden}
+.program-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+.program-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.9),rgba(0,0,0,0) 58%);pointer-events:none}
+.program-name{position:absolute;left:20px;bottom:18px;right:20px;font-size:clamp(22px,2.5vw,34px);font-weight:900;letter-spacing:-.03em}
+.program-link{display:block;padding:16px 18px;color:var(--red);font-size:12px;font-weight:900}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.news-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px;min-height:190px}
+.news-card .tag{color:var(--red);font-size:11px;font-weight:900;letter-spacing:.12em}
+.news-card h3{font-size:20px;line-height:1.35;margin:12px 0}
+.news-card p{color:var(--gray);font-size:14px;line-height:1.6}
+.gallery-preview{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+.gallery-preview a{min-height:260px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0c0c0c}
+.gallery-preview img{width:100%;height:100%;object-fit:cover;transition:.25s}
+.gallery-preview a:hover img{transform:scale(1.03);filter:brightness(.8)}
+.cta{padding:42px 0;background:linear-gradient(90deg,#1b0002,#070707);border-top:1px solid #461015;border-bottom:1px solid #461015}
+.cta-row{display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+.cta strong{font-size:clamp(28px,4vw,52px)}
+.contacts{display:flex;gap:18px;flex-wrap:wrap;color:#ddd}
+footer{padding:46px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+footer img{width:140px}
+footer h4{color:var(--red);margin:0 0 13px}
+footer p,footer li{color:var(--gray);font-size:14px;line-height:1.7}
+footer ul{padding:0;list-style:none}
+.copy{border-top:1px solid var(--line);margin-top:28px;padding-top:20px;color:#777;font-size:12px}
+.page-hero{padding:70px 0 30px}
+.page-hero h1{font-size:clamp(46px,7vw,86px);margin:8px 0}
+.page-hero p{color:#bbb;max-width:760px;font-size:17px;line-height:1.7}
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;padding-bottom:70px}
+.gitem{grid-column:span 6;min-height:330px;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#111;cursor:pointer}
+.gitem:nth-child(1),.gitem:nth-child(4){grid-column:span 7}
+.gitem:nth-child(2),.gitem:nth-child(3){grid-column:span 5}
+.gitem img{width:100%;height:100%;object-fit:cover;display:block}
+.lightbox{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.95);align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:94vw;max-height:90vh}
+.close{position:fixed;right:22px;top:18px;border:1px solid #555;background:#111;color:#fff;width:46px;height:46px;border-radius:50%;font-size:26px}
+@media(max-width:900px){
+  nav{display:none}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .feature:nth-child(2){border-right:0}
+  .program-grid,.news-grid,.footer-grid{grid-template-columns:1fr}
+  .gallery-preview{grid-template-columns:1fr}
+  .gitem,.gitem:nth-child(1),.gitem:nth-child(2),.gitem:nth-child(3),.gitem:nth-child(4){grid-column:span 12}
+}
+@media(max-width:560px){
+  .feature-grid{grid-template-columns:1fr}
+  .feature{border-right:0;border-bottom:1px solid var(--line)}
+  .feature:last-child{border-bottom:0}
+}
 </style>
 </head>
 <body>
 <header><div class="wrap nav">
-<a class="brand" href="#home"><img src="alb-tv-canada-logo.png" alt="ALB TV Canada"></a>
-<nav>
-<a href="#home">KRYEFAQJA</a><a href="#programet">PROGRAMET</a><a href="lajme.html">LAJME</a><a href="galeri.html">GALERIA</a><a href="#rreth">RRETH NESH</a><a href="#kontakt">KONTAKT</a>
-<a class="live" href="https://www.youtube.com/@ALB_Tv_Canada_Official" target="_blank">● LIVE</a>
-</nav></div></header>
+  <a class="brand" href="index.html"><img src="alb-tv-logo.png" alt="ALB TV Canada"></a>
+  <nav>
+    <a href="index.html">KRYEFAQJA</a><a href="programet.html">PROGRAMET</a><a href="lajme.html">LAJME</a><a href="galeri.html">GALERIA</a><a href="#rreth">RRETH NESH</a><a href="#kontakt">KONTAKT</a>
+    <a class="live" href="https://www.youtube.com/@ALB_Tv_Canada_Official" target="_blank">● LIVE</a>
+  </nav>
+</div></header>
 
-<main id="home">
-<div class="wrap hero">
-<div><div class="eyebrow">ZËRI I SHQIPTARËVE NË KANADA</div><h1>SHTËPIA E MEDIAS <b>SHQIPTARE</b></h1><div class="script">në Kanada</div>
-<p>ALB TV Canada është media e komunitetit shqiptar në Kanada — lajme, intervista, programe origjinale, kulturë, biznes dhe histori që na bashkojnë.</p>
-<div class="actions"><a class="btn primary" href="https://www.youtube.com/@ALB_Tv_Canada_Official" target="_blank">▶ SHIKO LIVE</a><a class="btn" href="#programet">PROGRAMET TONA</a></div></div>
-<div class="hero-art"><img src="alb-tv-canada-logo.png" alt="Logo zyrtare ALB TV Canada"></div>
-</div>
-
-<div class="wrap features">
-<div class="feature"><b>LAJME 24/7</b><p>Lajmet më të fundit nga Kanada, Shqipëria, Kosova dhe bota.</p></div>
-<div class="feature"><b>PROGRAME ORIGJINALE</b><p>Emisione për kulturën, biznesin, historinë dhe komunitetin.</p></div>
-<div class="feature"><b>KOMUNITETI YNË</b><p>Ruajmë gjuhën, traditat dhe vlerat shqiptare.</p></div>
-<div class="feature"><b>EVENTE & AKTIVITETE</b><p>Ngjarjet që bashkojnë shqiptarët në Kanada.</p></div>
-</div>
-
-<section id="programet"><div class="wrap">
-<div class="section-head"><h2>PROGRAMET TONA</h2><a href="programet.html">SHIKO TË GJITHA →</a></div>
-<div class="program-grid">
-<a class="program-card" href="https://www.youtube.com/playlist?list=PL25e_FRShVMZvP4RXJ_W_Lc3z3-gizhY3" target="_blank" rel="noopener">
-  <div class="program-cover">
-    <span class="program-kicker">ALB TV CANADA</span>
-    <strong>Shqip Story Canada</strong>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">ZËRI I SHQIPTARËVE NË KANADA</div>
+    <h1>SHTËPIA E MEDIAS <span>SHQIPTARE</span></h1>
+    <p>ALB TV Canada sjell lajme, intervista, programe origjinale, kulturë, biznes dhe histori nga komuniteti shqiptar në Kanada.</p>
+    <div class="hero-actions"><a class="btn primary" href="https://www.youtube.com/@ALB_Tv_Canada_Official" target="_blank">▶ YOUTUBE</a><a class="btn" href="#programet">PROGRAMET TONA</a></div>
+    <div class="spot">
+      <video autoplay muted loop playsinline controls preload="metadata" poster="alb-tv-logo.png">
+        <source src="alb-tv-spot-web.mp4" type="video/mp4">
+      </video>
+    </div>
   </div>
-  <div class="program-meta"><h3>Shqip Story Canada</h3><p>Intervista &amp; Histori</p><span>Shiko playlist-in →</span></div>
-</a>
+</section>
 
-<a class="program-card" href="https://www.youtube.com/playlist?list=PL25e_FRShVMaAsSdoiNmSiG2BT_pXuvgw" target="_blank" rel="noopener">
-  <div class="program-cover">
-    <span class="program-kicker">ALB TV CANADA</span>
-    <strong>Qeshu Rini</strong>
+<section class="section"><div class="wrap">
+  <div class="feature-grid">
+    <div class="feature"><b>LAJME</b><p>Kanada, Shqipëri, Kosovë dhe diaspora.</p></div>
+    <div class="feature"><b>PROGRAME ORIGJINALE</b><p>Intervista, histori, kulturë dhe argëtim.</p></div>
+    <div class="feature"><b>KOMUNITETI</b><p>Ngjarjet dhe zëri i shqiptarëve në Kanada.</p></div>
+    <div class="feature"><b>EVENTE & LIVE</b><p>Transmetime dhe kronika nga aktivitetet.</p></div>
   </div>
-  <div class="program-meta"><h3>Qeshu Rini</h3><p>Humor &amp; Argëtim</p><span>Shiko playlist-in →</span></div>
-</a>
-
-<a class="program-card" href="https://www.youtube.com/playlist?list=PL25e_FRShVMYdEIMm_Io0GnTy9WlldsNB" target="_blank" rel="noopener">
-  <div class="program-cover">
-    <span class="program-kicker">ALB TV CANADA</span>
-    <strong>Gjuha e Nënës</strong>
-  </div>
-  <div class="program-meta"><h3>Gjuha e Nënës</h3><p>Gjuhë &amp; Kulturë</p><span>Shiko playlist-in →</span></div>
-</a>
-
-<a class="program-card" href="https://www.youtube.com/playlist?list=PL25e_FRShVMYJJ6btXR9EXkSpwj9wvyJ3" target="_blank" rel="noopener">
-  <div class="program-cover">
-    <span class="program-kicker">ALB TV CANADA</span>
-    <strong>Kronika nga Komuniteti Shqiptar</strong>
-  </div>
-  <div class="program-meta"><h3>Kronika nga Komuniteti Shqiptar</h3><p>Aktualitet &amp; Ngjarje</p><span>Shiko playlist-in →</span></div>
-</a></div>
 </div></section>
 
-<section><div class="wrap">
-<div class="section-head"><h2>LAJMET E FUNDIT</h2><a href="lajme.html">SHIKO TË GJITHA LAJMET →</a></div>
-<div class="news-grid">
-<article class="news"><div class="news-image">CA</div><div class="news-body"><span class="tag">KANADA</span><h3>Lajmet dhe zhvillimet më të fundit nga Kanadaja</h3><p>Lexoni lajmet e përditësuara në ALB TV Canada.</p></div></article>
-<article class="news"><div class="news-image">AL</div><div class="news-body"><span class="tag">SHQIPTARI</span><h3>Zëri dhe aktivitetet e komunitetit shqiptar</h3><p>Histori, intervista dhe kronika nga komuniteti.</p></div></article>
-<article class="news"><div class="news-image">TV</div><div class="news-body"><span class="tag">VIDEO</span><h3>Reportazhet dhe videot më të reja</h3><p>Shikoni përmbajtjen tonë edhe në YouTube.</p></div></article>
-</div></div></section>
+<section class="section" id="programet"><div class="wrap">
+  <div class="section-head"><h2 class="section-title">PROGRAMET <span>TONA</span></h2><a class="more" href="programet.html">SHIKO TË GJITHA →</a></div>
+  <div class="program-grid">
+<article class="program-card">
+  <div class="program-video">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/kljy5CIrthI?autoplay=1&mute=1&controls=0&loop=1&playlist=kljy5CIrthI&modestbranding=1&rel=0"
+      title="Gjuha e Nënës"
+      loading="lazy"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen></iframe>
+    <div class="program-shade"></div>
+    <div class="program-name">Gjuha e Nënës</div>
+  </div>
+  <a class="program-link" href="https://www.youtube.com/playlist?list=PL25e_FRShVMYdEIMm_Io0GnTy9WlldsNB" target="_blank" rel="noopener">Hap playlist-in →</a>
+</article>
 
-<section id="galeria"><div class="wrap">
-<div class="section-head"><h2>GALERIA</h2><a href="galeri.html">HAP GALERINË →</a></div>
-<div class="gallery-grid"><div class="gallery-item">FOTO NGA AKTIVITETET</div><div class="gallery-item">EVENTE</div><div class="gallery-item">STUDIO</div></div>
+
+<article class="program-card">
+  <div class="program-video">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/aEUSy9vXgko?autoplay=1&mute=1&controls=0&loop=1&playlist=aEUSy9vXgko&modestbranding=1&rel=0"
+      title="Qeshu Rini"
+      loading="lazy"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen></iframe>
+    <div class="program-shade"></div>
+    <div class="program-name">Qeshu Rini</div>
+  </div>
+  <a class="program-link" href="https://www.youtube.com/playlist?list=PL25e_FRShVMaAsSdoiNmSiG2BT_pXuvgw" target="_blank" rel="noopener">Hap playlist-in →</a>
+</article>
+
+
+<article class="program-card">
+  <div class="program-video">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/hQ9MdF38I4w?autoplay=1&mute=1&controls=0&loop=1&playlist=hQ9MdF38I4w&modestbranding=1&rel=0"
+      title="Shqip Story Canada"
+      loading="lazy"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen></iframe>
+    <div class="program-shade"></div>
+    <div class="program-name">Shqip Story Canada</div>
+  </div>
+  <a class="program-link" href="https://www.youtube.com/playlist?list=PL25e_FRShVMZvP4RXJ_W_Lc3z3-gizhY3" target="_blank" rel="noopener">Hap playlist-in →</a>
+</article>
+
+
+<article class="program-card">
+  <div class="program-video">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/OCfVMjMLPYw?autoplay=1&mute=1&controls=0&loop=1&playlist=OCfVMjMLPYw&modestbranding=1&rel=0"
+      title="Kronika nga Komuniteti Shqiptar"
+      loading="lazy"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen></iframe>
+    <div class="program-shade"></div>
+    <div class="program-name">Kronika nga Komuniteti Shqiptar</div>
+  </div>
+  <a class="program-link" href="https://www.youtube.com/playlist?list=PL25e_FRShVMYJJ6btXR9EXkSpwj9wvyJ3" target="_blank" rel="noopener">Hap playlist-in →</a>
+</article>
+</div>
 </div></section>
 
-<section id="rreth"><div class="wrap"><div class="section-head"><h2>RRETH ALB TV CANADA</h2></div><p style="max-width:850px;color:#bdbdbd;font-size:18px;line-height:1.8">Një platformë mediatike e ndërtuar për të informuar, promovuar dhe bashkuar komunitetin shqiptar në Kanada. Synimi ynë është të sjellim histori me vlerë dhe të krijojmë një urë të fortë mes komunitetit, kulturës dhe brezave.</p></div></section>
+<section class="section"><div class="wrap">
+  <div class="section-head"><h2 class="section-title">LAJMET <span>E FUNDIT</span></h2><a class="more" href="lajme.html">HAP LAJMET →</a></div>
+  <div class="news-grid">
+    <article class="news-card"><div class="tag">KANADA</div><h3>Lajmet dhe zhvillimet më të fundit</h3><p>Përditësime nga Kanadaja dhe çështjet që prekin komunitetin.</p></article>
+    <article class="news-card"><div class="tag">KOMUNITETI</div><h3>Aktivitete dhe histori shqiptare</h3><p>Kronika, intervista dhe ngjarje nga shqiptarët në Kanada.</p></article>
+    <article class="news-card"><div class="tag">VIDEO</div><h3>Reportazhet më të reja të ALB TV Canada</h3><p>Shiko videot dhe programet tona edhe në YouTube.</p></article>
+  </div>
+</div></section>
 
-<div class="cta" id="kontakt"><div class="wrap cta-row"><div class="script">Bashkë, më të fortë!</div><div class="contact"><a href="mailto:albtvcanada@gmail.com">✉ albtvcanada@gmail.com</a><a href="tel:+14375229089">☎ 437-522-9089</a><span>Toronto, Ontario, Canada</span></div></div></div>
+<section class="section"><div class="wrap">
+  <div class="section-head"><h2 class="section-title">GALERIA</h2><a class="more" href="galeri.html">HAP GALERINË →</a></div>
+  <div class="gallery-preview">
+    <a href="galeri.html"><img src="gallery/DSC00913.JPG" alt="Aktivitet ALB TV Canada"></a>
+    <a href="galeri.html"><img src="gallery/DSC01092.JPG" alt="Aktivitet ALB TV Canada"></a>
+    <a href="galeri.html"><img src="gallery/DSC01119.JPG" alt="Aktivitet ALB TV Canada"></a>
+  </div>
+</div></section>
+
+<section class="section" id="rreth"><div class="wrap">
+  <div class="section-head"><h2 class="section-title">RRETH <span>NESH</span></h2></div>
+  <p style="max-width:860px;color:#bdbdbd;font-size:18px;line-height:1.8">ALB TV Canada është një platformë mediatike shqiptare me qendër në Toronto, e krijuar për të informuar, promovuar dhe bashkuar komunitetin shqiptar në Kanada përmes lajmeve, intervistave, programeve, reportazheve dhe transmetimeve live.</p>
+</div></section>
+
+<section class="cta" id="kontakt"><div class="wrap cta-row">
+  <strong>Bashkë, më të fortë.</strong>
+  <div class="contacts"><a href="mailto:albtvcanada@gmail.com">✉ albtvcanada@gmail.com</a><a href="tel:+14375229089">☎ 437-522-9089</a><span>Toronto, Ontario, Canada</span></div>
+</div></section>
 </main>
 
 <footer><div class="wrap"><div class="footer-grid">
-<div><img src="alb-tv-canada-logo.png" alt="ALB TV Canada"><p>Zëri i shqiptarëve në Kanada.<br>Informim • Kulturë • Komunitet</p></div>
-<div><h4>NA NDIQNI</h4><ul><li><a href="https://www.youtube.com/@ALB_Tv_Canada_Official" target="_blank">YouTube</a></li><li><a href="https://www.facebook.com/albtvcanada.official/" target="_blank">Facebook</a></li><li>Instagram: @albtv_canada</li><li>TikTok</li></ul></div>
-<div><h4>KONTAKT</h4><ul><li><a href="mailto:albtvcanada@gmail.com">albtvcanada@gmail.com</a></li><li><a href="tel:+14375229089">437-522-9089</a></li><li>Toronto, Ontario, Canada</li></ul></div>
-</div><div class="copyright">© 2026 ALB TV Canada. Të gjitha të drejtat e rezervuara.</div></div></footer>
+  <div><img src="alb-tv-logo.png" alt="ALB TV Canada"><p>Zëri i shqiptarëve në Kanada.<br>Informim • Kulturë • Komunitet</p></div>
+  <div><h4>PLATFORMAT</h4><ul><li><a href="https://www.youtube.com/@ALB_Tv_Canada_Official" target="_blank">YouTube</a></li><li><a href="https://www.facebook.com/albtvcanada.official/" target="_blank">Facebook</a></li><li>Instagram: @albtv_canada</li><li>TikTok</li></ul></div>
+  <div><h4>KONTAKT</h4><ul><li><a href="mailto:albtvcanada@gmail.com">albtvcanada@gmail.com</a></li><li><a href="tel:+14375229089">437-522-9089</a></li><li>Toronto, Ontario, Canada</li></ul></div>
+</div><div class="copy">© 2026 ALB TV Canada. Të gjitha të drejtat e rezervuara.</div></div></footer>
 </body></html>
